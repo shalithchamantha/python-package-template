@@ -1,0 +1,8 @@
+{
+  "full_name": "Your Name",
+  "email": "your@email.com",
+  "repo_name": "my-python-package",
+  "package_name": "mypackage",
+  "project_short_description": "A short description of the project.",
+  "version": "0.1.0"
+}

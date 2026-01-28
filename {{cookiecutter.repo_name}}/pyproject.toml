@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{cookiecutter.repo_name}}"
+version = "{{cookiecutter.version}}"
+authors = [
+  { name="{{cookiecutter.full_name}}", email="{{cookiecutter.email}}" },
+]
+description = "{{cookiecutter.project_short_description}}"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "sphinx",
+    "sphinx-rtd-theme",
+    "flake8",
+    "python-semantic-release"
+]
+
+[tool.semantic_release]
+version_variable = "pyproject.toml:version"
+branch = "main"
