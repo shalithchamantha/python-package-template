@@ -17,7 +17,7 @@ jobs:
       - name: Python Semantic Release
         uses: python-semantic-release/python-semantic-release@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: {{ '${{ secrets.GITHUB_TOKEN }}' }}
 
   deploy-pypi:
     needs: release
@@ -32,7 +32,7 @@ jobs:
       - name: Build and Publish
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_TOKEN }}
+          TWINE_PASSWORD: {{ '${{ secrets.TEST_PYPI_TOKEN }}' }}
         run: |
           pip install build twine
           python -m build
@@ -58,5 +58,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: {{ '${{ secrets.GITHUB_TOKEN }}' }}
           publish_dir: ./docs/_build/html
